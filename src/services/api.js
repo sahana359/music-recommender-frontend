@@ -1,3 +1,4 @@
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL;
 export async function getSongSuggestions(keyword) {
   try {
     const response = await fetch(`${API_BASE_URL}/search_songs`, {
@@ -17,9 +18,6 @@ export async function getSongSuggestions(keyword) {
     return [];
   }
 }
-// api.js - handles all API calls
-
-const API_BASE_URL = "http://127.0.0.1:5000"; // Flask backend
 
 export async function getRecommendations(songTitle) {
   try {
