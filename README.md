@@ -7,7 +7,7 @@ This is the frontend for the Music Recommender app, built with React.
 
 ## Related Repositories
 - [Backend](https://github.com/sahana359/music-recommender-backend)
-- [Model-Training] (https://github.com/sahana359/music-recommender-ml)
+- [Model-Training](https://github.com/sahana359/music-recommender-ml)
 
 ## Features
 - Search for songs and view suggestions
