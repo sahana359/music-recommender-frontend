@@ -6,14 +6,26 @@ import { getRecommendations } from "./services/api";
 function App() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSearch = async (query) => {
     setLoading(true);
+    setError("");
+    setResults([]); // Clear previous results
     try {
       const recs = await getRecommendations(query);
-      setResults(recs);
-    } catch (error) {
-      console.error("Search failed:", error);
+      console.log("Recommendations received in App:");
+      console.log(recs);
+      if (!recs || recs.length === 0) {
+        setError("No recommendations found.");
+        setResults([]);
+      } else {
+        setResults(recs);
+      }
+    } catch (err) {
+      setError("Failed to fetch recommendations. Please try again.");
+      setResults([]);
+      console.error("Search failed:", err);
     } finally {
       setLoading(false);
     }
@@ -36,6 +48,8 @@ function App() {
           `}</style>
           <div>Loading recommendations...</div>
         </div>
+      ) : error ? (
+        <div style={{ textAlign: "center", color: "#d32f2f", margin: "30px" }}>{error}</div>
       ) : (
         <Recommendations results={results} />
       )}

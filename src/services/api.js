@@ -34,6 +34,8 @@ export async function getRecommendations(songTitle) {
     }
 
     const data = await response.json();
+    console.log("Received recommendations:");
+    console.log(data.recommendations);
     return data.recommendations; // return only the recommendations array
   } catch (error) {
     console.error("Error fetching recommendations:", error);
