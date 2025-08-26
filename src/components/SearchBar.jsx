@@ -64,11 +64,34 @@ const SearchBar = ({ onSearch }) => {
                 transition: "background 0.2s, color 0.2s",
                 borderBottom: idx !== suggestions.length - 1 ? "1px solid #e1d8f1ff" : "none"
               }}
-              onMouseEnter={e => e.currentTarget.style.color = '#000000'}
-              onMouseLeave={e => e.currentTarget.style.color = '#ffffffff'}
-              onClick={() => { setQuery(song); setSuggestions([]); }}
+              onMouseEnter={e => {
+                e.currentTarget.style.color = '#000000';
+                const children = e.currentTarget.children;
+                if (children.length > 1) {
+                  children[0].style.color = '#000000';
+                  children[1].style.color = '#000000';
+                } else if (children.length > 0) {
+                  children[0].style.color = '#000000';
+                }
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.color = '#ffffffff';
+                const children = e.currentTarget.children;
+                if (children.length > 1) {
+                  children[0].style.color = '#ffffffff';
+                  children[1].style.color = '#e1d8f1ff';
+                } else if (children.length > 0) {
+                  children[0].style.color = '#ffffffff';
+                }
+              }}
+              onClick={() => { setQuery(song.track_name); setSuggestions([]); }}
             >
-              <span style={{ fontWeight: 500 }}>{song}</span>
+              <span style={{ fontWeight: 500 }}>{song.track_name}</span>
+              {song.track_artist && (
+                <div style={{ fontSize: "13px", color: "#e1d8f1ff", marginTop: "2px" }}>
+                  {song.track_artist}
+                </div>
+              )}
             </li>
           ))}
         </ul>
