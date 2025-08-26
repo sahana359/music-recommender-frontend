@@ -32,21 +32,21 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Inter, sans-serif", backgroundColor: "#f0ece3ff", minHeight: "100vh" }}>
-      <h1 style={{ textAlign: "center", color: "#000", marginBottom: "30px", fontWeight: 400, fontSize: "2.5rem", letterSpacing: "1px" }}>
+    <div style={{ padding: "20px", fontFamily: "Inter, sans-serif", backgroundColor: "rgb(15 6 38 / 88%)", minHeight: "100vh" }}>
+      <h1 style={{ textAlign: "center", color: "rgb(252 252 252)", marginBottom: "30px", fontWeight: 400, fontSize: "2.5rem", letterSpacing: "1px" }}>
         Music Recommendations
       </h1>
       <SearchBar onSearch={handleSearch} />
       {loading ? (
         <div style={{ textAlign: "center", margin: "30px" }}>
-          <div className="loader" style={{ display: "inline-block", width: 40, height: 40, border: "4px solid #ccc", borderTop: "4px solid #1db954", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
+          <div className="loader" style={{ display: "inline-block", width: 40, height: 40, border: "4px solid #ccc", borderTop: "4px solid rgb(15 6 38 / 88%)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
           <style>{`
             @keyframes spin {
               0% { transform: rotate(0deg); }
               100% { transform: rotate(360deg); }
             }
           `}</style>
-          <div>Loading recommendations...</div>
+          <div style={{color: "#fff"}}>Loading recommendations...</div>
         </div>
       ) : error ? (
         <div style={{ textAlign: "center", color: "#d32f2f", margin: "30px" }}>{error}</div>

@@ -29,7 +29,7 @@ const SearchBar = ({ onSearch }) => {
         type="text"
         value={query}
         onChange={handleChange}
-        placeholder="Search..."
+        placeholder="Search for a song..."
         className="search-input"
         autoComplete="off"
       />
@@ -42,7 +42,7 @@ const SearchBar = ({ onSearch }) => {
           top: "48px",
           left: 0,
           width: "100%",
-          background: "#f5ecd7",
+          background: "#9887b8",
           border: "1px solid #311c5a",
           borderRadius: "10px",
           margin: 0,
@@ -60,12 +60,12 @@ const SearchBar = ({ onSearch }) => {
                 padding: "10px 24px",
                 cursor: "pointer",
                 fontSize: "17px",
-                color: "#311c5a",
+                color: "#ffffffff",
                 transition: "background 0.2s, color 0.2s",
-                borderBottom: idx !== suggestions.length - 1 ? "1px solid #e0d6f7" : "none"
+                borderBottom: idx !== suggestions.length - 1 ? "1px solid #e1d8f1ff" : "none"
               }}
-              onMouseEnter={e => e.currentTarget.style.background = '#e0d6f7'}
-              onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+              onMouseEnter={e => e.currentTarget.style.color = '#000000'}
+              onMouseLeave={e => e.currentTarget.style.color = '#ffffffff'}
               onClick={() => { setQuery(song); setSuggestions([]); }}
             >
               <span style={{ fontWeight: 500 }}>{song}</span>

@@ -26,7 +26,7 @@
 
 .search-button {
   padding: 8px 16px;
-  background-color: #311c5a;
+  background-color: #9887b8;
   border: none;
   border-radius: 6px;
   color: white;
@@ -36,6 +36,6 @@
 }
 
 .search-button:hover {
-  background-color: #8b8098;
+  background-color: #9887b8;
   color: #311c5a;
 }
